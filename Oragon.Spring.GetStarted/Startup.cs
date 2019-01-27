@@ -26,7 +26,11 @@ namespace Oragon.Spring.GetStarted
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+            })
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             return services.WithSpring(
                 $"assembly://Oragon.Spring.GetStarted/Oragon.Spring.GetStarted/Container.config.xml"
