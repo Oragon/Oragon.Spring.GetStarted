@@ -5,7 +5,34 @@
     xmlns:aop="http://www.springframework.net/aop"
 >
 
+  <object name="OragonSpringExample" type="Oragon.Spring.GetStarted.Model.OragonSpringExample, Oragon.Spring.GetStarted">
 
+    <constructor-arg  name="constructorParameter" value="On Constructor Too"/>
 
+    <property name="StringExample" value="aa" />
+
+    <property name="IntExample" value="7" />
+
+    <property name="ReveillonTime" expression="date('2017/12/31')" />
+
+    <property name="CurrentTime" expression="DateTime.Now" />
+
+    <property name="BooleanProperty" value="true"/>
+
+    <property name="ChildList">
+
+      <list element-type="Oragon.Spring.GetStarted.Model.OragonSpringExample, Oragon.Spring.GetStarted">
+
+        <object name="OragonSpringExample" type="Oragon.Spring.GetStarted.Model.OragonSpringExample, Oragon.Spring.GetStarted">
+
+          <constructor-arg  name="constructorParameter" value="Child - Composite"/>
+
+        </object>
+
+      </list>
+
+    </property>
+
+  </object>
 
 </objects>
